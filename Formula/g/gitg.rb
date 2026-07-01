@@ -1,10 +1,9 @@
 class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
-  sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
+  url "https://download.gnome.org/sources/gitg/50/gitg-50.tar.xz"
+  sha256 "331216a86920cd4e8ab9b0036e63cecb3e1a1d1162c61aa31bd6924e985a8154"
   license "GPL-2.0-or-later"
-  revision 9
 
   livecheck do
     url :stable
@@ -61,6 +60,10 @@ class Gitg < Formula
     inreplace "gitg/gitg-plugins-engine.vala" do |s|
       s.gsub!(/\t\tvar repo = Introspection\.Repository.*?\n\t\tcatch \(Error e\)\n\t\t\{.*?return;\n\t\t\}\n/m, "")
     end
+
+    # Vala emits \u001b as a C universal character name rejected by newer GCC; use \x1b like elsewhere in the file
+    # Issue ref: https://gitlab.gnome.org/GNOME/gitg/-/work_items/521
+    inreplace "gitg/gitg-result-dialog.vala", '"\u001b"', '"\x1b"'
 
     ENV["DESTDIR"] = "/"
     system "meson", "setup", "build", "-Dpython=false", *std_meson_args

@@ -5,8 +5,8 @@ class Crystal < Formula
   compatibility_version 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.2.tar.gz"
-    sha256 "68b69b844bf3bf9990cb7befb06520fc477bb6c3f42de833c6b6a80dd5d0b17c"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.20.3.tar.gz"
+    sha256 "b0b5ff4a9ec499ff648f724e9d6c6efd2b2f672bf83ae9ac3f251911254ba9fc"
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.20.0.tar.gz"
@@ -83,8 +83,8 @@ class Crystal < Formula
 
   # Check version in `shard.lock` in shards repo.
   resource "molinillo" do
-    url "https://github.com/crystal-lang/crystal-molinillo/archive/refs/tags/v0.2.0.tar.gz"
-    sha256 "e231cf2411a6a11a1538983c7fb52b19e650acc3338bd3cdf6fdb13d6463861a"
+    url "https://github.com/crystal-lang/crystal-molinillo/archive/refs/tags/v0.2.2.tar.gz"
+    sha256 "ac4d366447aafbec23c82119a74b3e3519975782ff37d8b00a34749c81e6e876"
   end
 
   def install
